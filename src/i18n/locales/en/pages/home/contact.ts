@@ -1,3 +1,3 @@
-export const contacts = {
+export const contact = {
     title: "Contact"
 }

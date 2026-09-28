@@ -5,6 +5,7 @@ import EducationSection from "./sections/EducationSection";
 import WorkSection from "./sections/WorkSection";
 import ProjectsSection from "./sections/ProjectsSection";
 import CertificatesSection from "./sections/CertificatesSection";
+import ContactSection from "./sections/ContactSection";
 
 export function Home() {
     useSectionNavigation('home');
@@ -17,6 +18,7 @@ export function Home() {
             <WorkSection />
             <ProjectsSection />
             <CertificatesSection />
+            <ContactSection />
         </>
     );
 }
