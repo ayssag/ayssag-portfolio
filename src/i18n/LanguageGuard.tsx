@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams, useNavigate, useLocation, Outlet } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import type { SupportedLang } from './routesMap';
+import { getEquivalentPath, type SupportedLang } from './routesMap';
 
 const VALID_LANGS: SupportedLang[] = ['pt', 'en'];
 
@@ -19,6 +19,13 @@ export function LanguageGuard() {
 
     if (i18n.language !== lang) {
       i18n.changeLanguage(lang);
+    }
+
+    const currentFullPath = location.pathname + location.hash;
+    const equivalentPath = getEquivalentPath(currentFullPath, lang as SupportedLang);
+
+    if (currentFullPath !== equivalentPath && currentFullPath + '/' !== equivalentPath) {
+      navigate(equivalentPath, { replace: true });
     }
   }, [lang, i18n, navigate, location]);
 

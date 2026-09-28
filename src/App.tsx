@@ -9,10 +9,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/pt/home" replace />} />
         <Route path="/:lang" element={<LanguageGuard />}>
-          <Route index element={<Home />} />
-          <Route path="*" element={<Navigate to="/pt" replace />} />
+          <Route index element={<Navigate to="home" replace />} />
+          <Route path="home" element={<Home />} />
+          <Route path="*" element={<Navigate to="home" replace />} />
         </Route>
-        <Route path="*" element={<Navigate to="/pt" replace />} />
+        <Route path="*" element={<Navigate to="/pt/home" replace />} />
       </Routes>
     </BrowserRouter>
   )

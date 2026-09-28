@@ -85,3 +85,19 @@ export function getRoutePath(key: string, lang: SupportedLang): string {
   return route.paths[lang];
 }
 
+export function getSectionId(key: string, lang: SupportedLang): string {
+  const route = ROUTES.find((r) => r.key === key);
+  if (!route) return '';
+  const path = route.paths[lang];
+  const hashIndex = path.indexOf('#');
+  return hashIndex !== -1 ? path.substring(hashIndex + 1) : '';
+}
+
+export function getRouteKeyFromSectionId(sectionId: string, lang: SupportedLang): string | undefined {
+  if (!sectionId) return 'home';
+  const targetHash = `#${sectionId}`;
+  const route = ROUTES.find((r) => r.paths[lang].endsWith(targetHash));
+  return route?.key;
+}
+
+
