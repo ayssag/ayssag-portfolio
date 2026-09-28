@@ -3,16 +3,16 @@ import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 import { getSectionId, type SupportedLang } from "@/i18n/routesMap"
 
-function AboutSection() {
+function EducationSection() {
     const { t } = useTranslation();
     const { lang = 'pt' } = useParams<{ lang: SupportedLang }>();
-    const sectionId = getSectionId('home.about', lang as SupportedLang);
+    const sectionId = getSectionId('home.education', lang as SupportedLang);
 
     return (
         <Box id={sectionId} sx={{ height: "100vh" }}>
-            <Typography variant="h1">{t('pages.home.about.title')}</Typography>
+            <Typography variant="h1">{t('pages.home.education.title')}</Typography>
         </Box>
     )
 }
 
-export default AboutSection
+export default EducationSection
